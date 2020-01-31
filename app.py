@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from flask import Flask,render_template,url_for,request
 import re
 import pandas as pd
@@ -14,6 +15,7 @@ def index():
 
 @app.route('/process',methods=["POST"])
 def process():
+	global ORG_named_entity, PERSON_named_entity, GPE_named_entity, MONEY_named_entity
 	if request.method == 'POST':
 		choice = request.form['taskoption']
 		rawtext = request.form['rawtext']
